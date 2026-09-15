@@ -67,28 +67,30 @@ export default function AttendanceCalculator() {
         }
         .shape-up { animation: float-up 20s infinite ease-in-out; }
         .shape-down { animation: float-down 25s infinite ease-in-out; }
+        .shape-fast { animation-duration: 15s; }
+        .shape-slow { animation-duration: 30s; }
         .triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
       `}} />
 
-      {/* FLOATING SHAPES */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Hollow Square Top Left */}
+      {/* FLOATING SHAPES (Increased density) */}
+      <div className="absolute inset-0 pointer-events-none opacity-60">
+        {/* original 6 shapes */}
         <div className="absolute top-[15%] left-[10%] w-24 h-24 border-2 border-blue-500/20 rounded-2xl shape-up"></div>
-        
-        {/* Solid Triangle Bottom Left */}
         <div className="absolute bottom-[20%] left-[15%] w-32 h-32 bg-purple-500/10 triangle shape-down" style={{ animationDelay: '-5s' }}></div>
-        
-        {/* Hollow Triangle Top Right */}
         <div className="absolute top-[25%] right-[15%] w-28 h-28 border-2 border-pink-500/20 triangle shape-up" style={{ animationDelay: '-10s' }}></div>
-        
-        {/* Solid Square Bottom Right */}
         <div className="absolute bottom-[15%] right-[10%] w-20 h-20 bg-blue-500/10 rounded-xl shape-down" style={{ animationDelay: '-15s' }}></div>
+        <div className="absolute top-[45%] left-[5%] w-16 h-16 border-2 border-purple-500/20 rounded-full shape-up shape-fast" style={{ animationDelay: '-7s' }}></div>
+        <div className="absolute top-[50%] right-[5%] w-12 h-12 bg-pink-500/10 triangle shape-down shape-fast" style={{ animationDelay: '-2s' }}></div>
         
-        {/* Hollow Circle Center Left */}
-        <div className="absolute top-[45%] left-[5%] w-16 h-16 border-2 border-purple-500/20 rounded-full shape-up" style={{ animationDelay: '-7s' }}></div>
-
-        {/* Small Solid Triangle Center Right */}
-        <div className="absolute top-[50%] right-[5%] w-12 h-12 bg-pink-500/10 triangle shape-down" style={{ animationDelay: '-2s' }}></div>
+        {/* 8 NEW shapes added for density */}
+        <div className="absolute top-[5%] right-[40%] w-16 h-16 bg-blue-500/10 rounded-full shape-up shape-slow" style={{ animationDelay: '-3s' }}></div>
+        <div className="absolute bottom-[5%] left-[40%] w-20 h-20 border-2 border-purple-500/20 triangle shape-down shape-slow" style={{ animationDelay: '-8s' }}></div>
+        <div className="absolute top-[65%] left-[20%] w-10 h-10 bg-pink-500/10 rounded-xl shape-up shape-fast" style={{ animationDelay: '-12s' }}></div>
+        <div className="absolute top-[10%] right-[30%] w-14 h-14 border-2 border-blue-500/20 rounded-full shape-down" style={{ animationDelay: '-18s' }}></div>
+        <div className="absolute bottom-[40%] right-[20%] w-24 h-24 border-2 border-pink-500/10 rounded-2xl shape-up shape-slow" style={{ animationDelay: '-4s' }}></div>
+        <div className="absolute bottom-[30%] left-[30%] w-12 h-12 bg-purple-500/10 triangle shape-up" style={{ animationDelay: '-9s' }}></div>
+        <div className="absolute top-[35%] left-[25%] w-16 h-16 border-2 border-purple-500/20 rounded-xl shape-down shape-fast" style={{ animationDelay: '-14s' }}></div>
+        <div className="absolute top-[75%] right-[35%] w-14 h-14 bg-blue-500/10 triangle shape-up shape-slow" style={{ animationDelay: '-1s' }}></div>
       </div>
 
       {/* MAIN CARD (Glassmorphism effect) */}
