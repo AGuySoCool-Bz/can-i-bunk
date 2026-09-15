@@ -25,7 +25,6 @@ export default function AttendanceCalculator() {
   const percentIfAttendNext = currentTotal > 0 ? (((currentAttended + 1) / (currentTotal + 1)) * 100).toFixed(1) : "0.0";
   const percentIfSkipNext = currentTotal > 0 ? ((currentAttended / (currentTotal + 1)) * 100).toFixed(1) : "0.0";
   
-  // Max possible final percentage if they attend EVERY remaining class
   const maxPossiblePercent = finalTotalClasses > 0 ? ((currentAttended + futureClasses) / finalTotalClasses) * 100 : 0;
 
   // -- CONDITION EVALUATION --
@@ -52,25 +51,45 @@ export default function AttendanceCalculator() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gray-950 text-white flex items-center justify-center p-4 font-sans overflow-hidden">
+    <div className="relative min-h-screen bg-[#0f172a] text-white flex items-center justify-center p-4 font-sans overflow-hidden">
       
-      {/* ANIMATED BACKGROUND CSS */}
+      {/* GEOMETRIC BACKGROUND ANIMATIONS */}
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
+        @keyframes float-up {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-120px) rotate(180deg); }
+          100% { transform: translateY(0px) rotate(360deg); }
         }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
+        @keyframes float-down {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(120px) rotate(-180deg); }
+          100% { transform: translateY(0px) rotate(-360deg); }
+        }
+        .shape-up { animation: float-up 20s infinite ease-in-out; }
+        .shape-down { animation: float-down 25s infinite ease-in-out; }
+        .triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
       `}} />
 
-      {/* FLOATING BACKGROUND SHAPES */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-[80px] opacity-40 animate-blob"></div>
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[80px] opacity-40 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-600 rounded-full mix-blend-screen filter blur-[80px] opacity-40 animate-blob animation-delay-4000"></div>
+      {/* FLOATING SHAPES */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Hollow Square Top Left */}
+        <div className="absolute top-[15%] left-[10%] w-24 h-24 border-2 border-blue-500/20 rounded-2xl shape-up"></div>
+        
+        {/* Solid Triangle Bottom Left */}
+        <div className="absolute bottom-[20%] left-[15%] w-32 h-32 bg-purple-500/10 triangle shape-down" style={{ animationDelay: '-5s' }}></div>
+        
+        {/* Hollow Triangle Top Right */}
+        <div className="absolute top-[25%] right-[15%] w-28 h-28 border-2 border-pink-500/20 triangle shape-up" style={{ animationDelay: '-10s' }}></div>
+        
+        {/* Solid Square Bottom Right */}
+        <div className="absolute bottom-[15%] right-[10%] w-20 h-20 bg-blue-500/10 rounded-xl shape-down" style={{ animationDelay: '-15s' }}></div>
+        
+        {/* Hollow Circle Center Left */}
+        <div className="absolute top-[45%] left-[5%] w-16 h-16 border-2 border-purple-500/20 rounded-full shape-up" style={{ animationDelay: '-7s' }}></div>
+
+        {/* Small Solid Triangle Center Right */}
+        <div className="absolute top-[50%] right-[5%] w-12 h-12 bg-pink-500/10 triangle shape-down" style={{ animationDelay: '-2s' }}></div>
+      </div>
 
       {/* MAIN CARD (Glassmorphism effect) */}
       <div className="relative w-full max-w-md bg-gray-900/60 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 border border-gray-700/50 z-10">
