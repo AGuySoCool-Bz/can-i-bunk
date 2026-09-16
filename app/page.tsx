@@ -136,7 +136,7 @@ export default function AttendanceCalculator() {
                 placeholder="e.g., 3"
               />
             </div>
-            <div className="relative z-20">
+          <div className="relative z-20">
           <div className="flex items-center mb-1">
             <label className="block text-xs font-medium text-gray-400">Last Day of Classes</label>
             
@@ -146,12 +146,26 @@ export default function AttendanceCalculator() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               
-              {/* WHITE TOOLTIP BOX (Hidden by default, shown on hover) */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-white text-gray-800 text-xs rounded-lg shadow-xl text-center pointer-events-none">
+              {/* WHITE TOOLTIP BOX (Removed pointer-events-none so link is clickable) */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-56 p-2.5 bg-white text-gray-800 text-xs rounded-lg shadow-xl text-center z-50">
                 Select the final date of classes before exams begin.
-                <div className="mt-1 pt-1 border-t border-gray-200">
+                
+                <div className="mt-1.5 pt-1.5 border-t border-gray-200">
                   <span className="font-bold text-blue-600">25 Batch 3rd Sem:</span> 20-11-2026
                 </div>
+                
+                <div className="mt-1.5 pt-1.5 border-t border-gray-200 text-gray-500">
+                  Refer to:{' '}
+                  <a 
+                    href="https://www.iiserb.ac.in/doaa/schedule" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 font-medium hover:underline break-all"
+                  >
+                    IISERB Academic Schedule
+                  </a>
+                </div>
+
                 {/* Small white triangle pointing down */}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white"></div>
               </div>
