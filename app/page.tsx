@@ -5,7 +5,7 @@ export default function AttendanceCalculator() {
   const [attended, setAttended] = useState("");
   const [totalSoFar, setTotalSoFar] = useState("");
   const [classesPerWeek, setClassesPerWeek] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState("2026-11-20");
   const [showResult, setShowResult] = useState(false);
   const [isImageOpen, setIsImageOpen] = useState(false);
 
@@ -136,15 +136,35 @@ export default function AttendanceCalculator() {
                 placeholder="e.g., 3"
               />
             </div>
-            <div>
-              <label className="block text-xs font-medium text-gray-400 mb-1">Last Day of Classes</label>
-              <input 
-                type="date" 
-                value={endDate} 
-                onChange={(e) => { setEndDate(e.target.value); setShowResult(false); }}
-                className="w-full bg-gray-800/50 border border-gray-600 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-200 cursor-pointer"
-              />
+            <div className="relative z-20">
+          <div className="flex items-center mb-1">
+            <label className="block text-xs font-medium text-gray-400">Last Day of Classes</label>
+            
+            {/* INFO ICON & TOOLTIP */}
+            <div className="group relative ml-2 flex items-center">
+              <svg className="w-4 h-4 text-gray-400 hover:text-blue-400 cursor-help transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              
+              {/* WHITE TOOLTIP BOX (Hidden by default, shown on hover) */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-white text-gray-800 text-xs rounded-lg shadow-xl text-center pointer-events-none">
+                Select the final date of classes before exams begin.
+                <div className="mt-1 pt-1 border-t border-gray-200">
+                  <span className="font-bold text-blue-600">25 Batch 3rd Sem:</span> 20-11-2026
+                </div>
+                {/* Small white triangle pointing down */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+              </div>
             </div>
+            
+          </div>
+          <input 
+            type="date" 
+            value={endDate} 
+            onChange={(e) => { setEndDate(e.target.value); setShowResult(false); }}
+            className="w-full bg-gray-800/50 border border-gray-600 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition text-gray-200 cursor-pointer"
+          />
+        </div>
           </div>
         </div>
 
