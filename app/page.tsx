@@ -252,7 +252,7 @@ export default function AttendanceCalculator() {
             onClick={() => setIsImageOpen(true)}
             className="w-8 h-8 rounded-full object-cover border border-gray-600 bg-gray-800 cursor-pointer hover:scale-110 transition-transform duration-200"
           />
-          <span className="text-gray-200 text-sm font-semibold tracking-wide">Made by Naman Kanyal 25 batch</span>
+          <span className="text-gray-200 text-sm font-semibold tracking-wide">Made by Naman Kanyal</span>
           <div className="w-px h-5 bg-gray-600 mx-2"></div> 
           <div className="flex items-center space-x-4">
              {/* Replace these # with your real links */}
