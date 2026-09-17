@@ -187,7 +187,7 @@ export default function AttendanceCalculator() {
           onClick={() => {
             setShowResult(true);
             setShowFeedbackPopup(true);
-            setTimeout(() => setShowFeedbackPopup(false), 6000); // Hides the popup after 6 seconds
+            setTimeout(() => setShowFeedbackPopup(false), 20000); // Hides the popup after 20 seconds
           }}
           className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3 px-4 rounded-xl transition duration-300 transform hover:scale-[1.02] shadow-lg mb-4"
         >
