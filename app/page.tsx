@@ -97,7 +97,7 @@ export default function AttendanceCalculator() {
       {/* MAIN CARD */}
       <div className="relative w-full max-w-md bg-gray-900/60 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 border border-gray-700/50 z-10 my-4 mt-12">
         <h1 className="text-3xl font-black text-center mb-2 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-          Can I Bunk?
+          Can I Bunk Today?
         </h1>
         <p className="text-gray-400 text-center mb-6 text-sm">Analyze your attendance in real-time.</p>
 
